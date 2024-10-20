@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio Om Sai Chand P.</title>
+    <link rel="stylesheet" href="./pages/styles.css">
+    <link rel="icon" href="./Images/portfolio_logo.png">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <div id="headerExt"></div> <!-- Placeholder for the header -->
+    <div id="homeExt"></div>   <!-- Placeholder for the home content -->
+
+    <script>
+        // Fetch header content
+        fetch('./pages/header.html') // Use relative path for header
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('headerExt').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('There has been a problem with fetching header:', error);
+            });
+
+        // Fetch home content
+        fetch('./pages/Home.html') // Use relative path for Home.html
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('homeExt').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('There has been a problem with fetching home content:', error);
+            });
+    </script>
+</body>
+</html>
